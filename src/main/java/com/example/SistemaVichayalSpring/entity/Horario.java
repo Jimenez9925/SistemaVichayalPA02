@@ -24,8 +24,9 @@ public class Horario {
 	@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 	private Dia dia;
 	
-	
+	@Column(length = 20)
     private String horainicio;
+	@Column(length = 20)
     private String horafin;
 	
 }

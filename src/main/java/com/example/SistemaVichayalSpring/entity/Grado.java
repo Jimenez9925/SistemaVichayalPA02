@@ -1,21 +1,21 @@
 package com.example.SistemaVichayalSpring.entity;
 
 import javax.persistence.*;
+import javax.validation.Valid;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import lombok.Data;
 
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Getter
-@Setter
+@Data
 @Entity
-@Table(name="grado") // nombre de la tabla DB
+@Table(name="grado")
 @EntityListeners(AuditingEntityListener.class)
 public class Grado {
 
@@ -25,22 +25,15 @@ public class Grado {
 	@Column(name="nombre", nullable = false, length = 15,unique=true)
 	private String nombre;
 	
+	@Valid
+    @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_grado")
+    private List<Seccion> seccio;
 	
-	public int getId_grado() {
-		return id_grado;
-	}
-	public void setId_grado(int id_grado) {
-		this.id_grado = id_grado;
-	}
-	public String getNombre() {
-		return nombre;
-	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-	
-	
-	
+	public Grado(){
+		seccio = new ArrayList<>(); 
+    }
 }
 
 

@@ -14,7 +14,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name="tipo_documento") // nombre de la tabla
+@Table(name="tipo_documento") 
 @EntityListeners(AuditingEntityListener.class)
 public class TipoDocumento {
 	

@@ -44,17 +44,17 @@ public class Clase {
     @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_clase")
-    private List<EstudianteClase> estudiante_Clase;
+    private List<EstudianteClase> estudianteClase;
 
     @Valid
     @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_clase")
-    private List<Horario> horario;
+    private List<Horario> hora;
 
     public Clase(){
-    	estudiante_Clase = new ArrayList<>();
-    	//horario = new ArrayList<>();
+    	estudianteClase = new ArrayList<>();
+    	hora = new ArrayList<>();
     	
     }
      

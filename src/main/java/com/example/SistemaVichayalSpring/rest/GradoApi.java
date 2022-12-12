@@ -11,7 +11,7 @@ import com.example.SistemaVichayalSpring.entity.Grado;
 import com.example.SistemaVichayalSpring.service.GradoService;
 
 @RestController
-@RequestMapping("/api/grado")
+@RequestMapping("/api/Grado")
 public class GradoApi {
 
 	@Autowired
